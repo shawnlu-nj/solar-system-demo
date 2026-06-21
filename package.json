@@ -1,0 +1,20 @@
+{
+  "name": "test1",
+  "version": "1.0.0",
+  "description": "基于 Three.js 构建的交互式 3D 太阳系可视化模型。",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx playwright test",
+    "test:headed": "npx playwright test --headed",
+    "test:ui": "npx playwright test --ui",
+    "test:debug": "npx playwright test --debug"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "playwright": "^1.61.0",
+    "serve": "^14.2.6"
+  }
+}
