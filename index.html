@@ -223,7 +223,7 @@ function createPointTexture() {
 const sunGeom = new THREE.SphereGeometry(SUN_RADIUS, 64, 64);
 const sunMat = new THREE.MeshBasicMaterial({ color: 0xFFDD44 });
 const sun = new THREE.Mesh(sunGeom, sunMat);
-sun.userData = { type: 'sun', name: '太阳', nameEn: 'Sun', img:'sun', info: { 类型:'G型主序星', 直径:'1,392,700 km', 质量:'1.989×10³⁰ kg', 表面温度:'5,505°C', 年龄:'46亿年' } };
+sun.userData = { type: 'sun', name: '太阳', nameEn: 'Sun', img:'sun', info: { 类型:'G型主序星', 直径:'1,392,700 km', 质量:'1.989×10³⁰ kg', 表面温度:'5,505°C', 年龄:'46亿年' }, infoEn: { 类型:'G-type Main Sequence', 直径:'1,392,700 km', 质量:'1.989×10³⁰ kg', 表面温度:'5,505°C', 年龄:'4.6 billion years' } };
 scene.add(sun);
 
 const sunLabel = createLabel('太阳', '#FFD700', 0.3);
@@ -294,19 +294,19 @@ function makeLabelClickable(label, userData) {
 }
 
 const planetData = [
-  { name:'水星', nameEn:'Mercury', r:0.3, d:10, s:4.15, c:0xB5B5B5, labelC:'#ccc', tilt:0.03, img:'mercury', info:{ 类型:'岩石行星', 直径:'4,879 km', 轨道周期:'88天', 自转周期:'58.6天', 表面温度:'-173~427°C', 卫星数:'0' } },
-  { name:'金星', nameEn:'Venus', r:0.6, d:14, s:1.62, c:0xE8CDA0, labelC:'#E8CDA0', tilt:2.64, img:'venus', info:{ 类型:'岩石行星', 直径:'12,104 km', 轨道周期:'225天', 自转周期:'243天', 表面温度:'462°C', 卫星数:'0' } },
-  { name:'地球', nameEn:'Earth', r:0.7, d:18, s:1.00, c:0x2288FF, labelC:'#66AAFF', tilt:0.41, img:'earth', info:{ 类型:'岩石行星', 直径:'12,756 km', 轨道周期:'365天', 自转周期:'24小时', 表面温度:'-89~57°C', 卫星数:'1 (月球)' } },
-  { name:'火星', nameEn:'Mars', r:0.4, d:22, s:0.53, c:0xD4735E, labelC:'#D4735E', tilt:0.44, img:'mars', info:{ 类型:'岩石行星', 直径:'6,792 km', 轨道周期:'687天', 自转周期:'24.6小时', 表面温度:'-87~-5°C', 卫星数:'2' } },
-  { name:'木星', nameEn:'Jupiter', r:1.3, d:30, s:0.084, c:0xC8A86E, labelC:'#C8A86E', tilt:0.05, img:'jupiter', info:{ 类型:'气态巨行星', 直径:'142,984 km', 轨道周期:'11.86年', 自转周期:'9.9小时', 表面温度:'-108°C', 卫星数:'95' } },
-  { name:'土星', nameEn:'Saturn', r:1.0, d:38, s:0.034, c:0xE8D5A3, labelC:'#E8D5A3', tilt:0.47, ring:true, img:'saturn', info:{ 类型:'气态巨行星', 直径:'120,536 km', 轨道周期:'29.46年', 自转周期:'10.7小时', 表面温度:'-139°C', 卫星数:'146' } },
-  { name:'天王星', nameEn:'Uranus', r:0.8, d:48, s:0.012, c:0x7EC8E3, labelC:'#7EC8E3', tilt:1.71, img:'uranus', info:{ 类型:'冰巨行星', 直径:'51,118 km', 轨道周期:'84.01年', 自转周期:'17.2小时', 表面温度:'-197°C', 卫星数:'27' } },
-  { name:'海王星', nameEn:'Neptune', r:0.8, d:58, s:0.006, c:0x4B70DD, labelC:'#4B70DD', tilt:0.49, img:'neptune', info:{ 类型:'冰巨行星', 直径:'49,528 km', 轨道周期:'164.8年', 自转周期:'16.1小时', 表面温度:'-201°C', 卫星数:'16' } },
-  { name:'冥王星', nameEn:'Pluto', r:0.25, d:62, s:0.004, c:0xDDCCAA, labelC:'#DDCCAA', tilt:2.16, img:'pluto', info:{ 类型:'矮行星', 直径:'2,377 km', 轨道周期:'248年', 自转周期:'6.39天', 表面温度:'-230°C', 卫星数:'5' } },
-  { name:'谷神星', nameEn:'Ceres', r:0.18, d:28, s:0.003, c:0xCCBB99, labelC:'#CCBB99', tilt:0.07, img:'ceres', info:{ 类型:'矮行星', 直径:'939 km', 轨道周期:'4.6年', 自转周期:'9小时', 表面温度:'-106°C', 分类:'小行星带' } },
-  { name:'鸟神星', nameEn:'Makemake', r:0.2, d:68, s:0.002, c:0xCC9966, labelC:'#CC9966', tilt:0.47, img:'https://cdn.esahubble.org/archives/images/screen/opo1618d.jpg', info:{ 类型:'矮行星', 直径:'1,430 km', 轨道周期:'309年', 自转周期:'22.5小时', 表面温度:'-239°C', 分类:'柯伊伯带' } },
-  { name:'妊神星', nameEn:'Haumea', r:0.18, d:66, s:0.002, c:0xBB8866, labelC:'#BB8866', tilt:0.39, img:'https://upload.wikimedia.org/wikipedia/commons/9/90/2003EL61art.jpg', info:{ 类型:'矮行星', 直径:'1,632 km', 轨道周期:'285年', 自转周期:'3.9小时', 表面温度:'-241°C', 分类:'柯伊伯带' } },
-  { name:'阋神星', nameEn:'Eris', r:0.2, d:96, s:0.001, c:0xAABB99, labelC:'#AABB99', tilt:0.77, img:'https://assets.science.nasa.gov/content/dam/science/psd/solar/2023/09/2/245_PIA17307.jpg', info:{ 类型:'矮行星', 直径:'2,326 km', 轨道周期:'559年', 自转周期:'25.9小时', 表面温度:'-231°C', 分类:'离散盘' } },
+  { name:'水星', nameEn:'Mercury', r:0.3, d:10, s:4.15, c:0xB5B5B5, labelC:'#ccc', tilt:0.03, img:'mercury', info:{ 类型:'岩石行星', 直径:'4,879 km', 轨道周期:'88天', 自转周期:'58.6天', 表面温度:'-173~427°C', 卫星数:'0' }, infoEn:{ 类型:'Terrestrial Planet', 直径:'4,879 km', 轨道周期:'88 days', 自转周期:'58.6 days', 表面温度:'-173~427°C', 卫星数:'0' } },
+  { name:'金星', nameEn:'Venus', r:0.6, d:14, s:1.62, c:0xE8CDA0, labelC:'#E8CDA0', tilt:2.64, img:'venus', info:{ 类型:'岩石行星', 直径:'12,104 km', 轨道周期:'225天', 自转周期:'243天', 表面温度:'462°C', 卫星数:'0' }, infoEn:{ 类型:'Terrestrial Planet', 直径:'12,104 km', 轨道周期:'225 days', 自转周期:'243 days', 表面温度:'462°C', 卫星数:'0' } },
+  { name:'地球', nameEn:'Earth', r:0.7, d:18, s:1.00, c:0x2288FF, labelC:'#66AAFF', tilt:0.41, img:'earth', info:{ 类型:'岩石行星', 直径:'12,756 km', 轨道周期:'365天', 自转周期:'24小时', 表面温度:'-89~57°C', 卫星数:'1 (月球)' }, infoEn:{ 类型:'Terrestrial Planet', 直径:'12,756 km', 轨道周期:'365 days', 自转周期:'24 hours', 表面温度:'-89~57°C', 卫星数:'1 (Moon)' } },
+  { name:'火星', nameEn:'Mars', r:0.4, d:22, s:0.53, c:0xD4735E, labelC:'#D4735E', tilt:0.44, img:'mars', info:{ 类型:'岩石行星', 直径:'6,792 km', 轨道周期:'687天', 自转周期:'24.6小时', 表面温度:'-87~-5°C', 卫星数:'2' }, infoEn:{ 类型:'Terrestrial Planet', 直径:'6,792 km', 轨道周期:'687 days', 自转周期:'24.6 hours', 表面温度:'-87~-5°C', 卫星数:'2' } },
+  { name:'木星', nameEn:'Jupiter', r:1.3, d:30, s:0.084, c:0xC8A86E, labelC:'#C8A86E', tilt:0.05, img:'jupiter', info:{ 类型:'气态巨行星', 直径:'142,984 km', 轨道周期:'11.86年', 自转周期:'9.9小时', 表面温度:'-108°C', 卫星数:'95' }, infoEn:{ 类型:'Gas Giant', 直径:'142,984 km', 轨道周期:'11.86 years', 自转周期:'9.9 hours', 表面温度:'-108°C', 卫星数:'95' } },
+  { name:'土星', nameEn:'Saturn', r:1.0, d:38, s:0.034, c:0xE8D5A3, labelC:'#E8D5A3', tilt:0.47, ring:true, img:'saturn', info:{ 类型:'气态巨行星', 直径:'120,536 km', 轨道周期:'29.46年', 自转周期:'10.7小时', 表面温度:'-139°C', 卫星数:'146' }, infoEn:{ 类型:'Gas Giant', 直径:'120,536 km', 轨道周期:'29.46 years', 自转周期:'10.7 hours', 表面温度:'-139°C', 卫星数:'146' } },
+  { name:'天王星', nameEn:'Uranus', r:0.8, d:48, s:0.012, c:0x7EC8E3, labelC:'#7EC8E3', tilt:1.71, img:'uranus', info:{ 类型:'冰巨行星', 直径:'51,118 km', 轨道周期:'84.01年', 自转周期:'17.2小时', 表面温度:'-197°C', 卫星数:'27' }, infoEn:{ 类型:'Ice Giant', 直径:'51,118 km', 轨道周期:'84.01 years', 自转周期:'17.2 hours', 表面温度:'-197°C', 卫星数:'27' } },
+  { name:'海王星', nameEn:'Neptune', r:0.8, d:58, s:0.006, c:0x4B70DD, labelC:'#4B70DD', tilt:0.49, img:'neptune', info:{ 类型:'冰巨行星', 直径:'49,528 km', 轨道周期:'164.8年', 自转周期:'16.1小时', 表面温度:'-201°C', 卫星数:'16' }, infoEn:{ 类型:'Ice Giant', 直径:'49,528 km', 轨道周期:'164.8 years', 自转周期:'16.1 hours', 表面温度:'-201°C', 卫星数:'16' } },
+  { name:'冥王星', nameEn:'Pluto', r:0.25, d:62, s:0.004, c:0xDDCCAA, labelC:'#DDCCAA', tilt:2.16, img:'pluto', info:{ 类型:'矮行星', 直径:'2,377 km', 轨道周期:'248年', 自转周期:'6.39天', 表面温度:'-230°C', 卫星数:'5' }, infoEn:{ 类型:'Dwarf Planet', 直径:'2,377 km', 轨道周期:'248 years', 自转周期:'6.39 days', 表面温度:'-230°C', 卫星数:'5' } },
+  { name:'谷神星', nameEn:'Ceres', r:0.18, d:28, s:0.003, c:0xCCBB99, labelC:'#CCBB99', tilt:0.07, img:'ceres', info:{ 类型:'矮行星', 直径:'939 km', 轨道周期:'4.6年', 自转周期:'9小时', 表面温度:'-106°C', 分类:'小行星带' }, infoEn:{ 类型:'Dwarf Planet', 直径:'939 km', 轨道周期:'4.6 years', 自转周期:'9 hours', 表面温度:'-106°C', 分类:'Asteroid Belt' } },
+  { name:'鸟神星', nameEn:'Makemake', r:0.2, d:68, s:0.002, c:0xCC9966, labelC:'#CC9966', tilt:0.47, img:'https://cdn.esahubble.org/archives/images/screen/opo1618d.jpg', info:{ 类型:'矮行星', 直径:'1,430 km', 轨道周期:'309年', 自转周期:'22.5小时', 表面温度:'-239°C', 分类:'柯伊伯带' }, infoEn:{ 类型:'Dwarf Planet', 直径:'1,430 km', 轨道周期:'309 years', 自转周期:'22.5 hours', 表面温度:'-239°C', 分类:'Kuiper Belt' } },
+  { name:'妊神星', nameEn:'Haumea', r:0.18, d:66, s:0.002, c:0xBB8866, labelC:'#BB8866', tilt:0.39, img:'https://upload.wikimedia.org/wikipedia/commons/9/90/2003EL61art.jpg', info:{ 类型:'矮行星', 直径:'1,632 km', 轨道周期:'285年', 自转周期:'3.9小时', 表面温度:'-241°C', 分类:'柯伊伯带' }, infoEn:{ 类型:'Dwarf Planet', 直径:'1,632 km', 轨道周期:'285 years', 自转周期:'3.9 hours', 表面温度:'-241°C', 分类:'Kuiper Belt' } },
+  { name:'阋神星', nameEn:'Eris', r:0.2, d:96, s:0.001, c:0xAABB99, labelC:'#AABB99', tilt:0.77, img:'https://assets.science.nasa.gov/content/dam/science/psd/solar/2023/09/2/245_PIA17307.jpg', info:{ 类型:'矮行星', 直径:'2,326 km', 轨道周期:'559年', 自转周期:'25.9小时', 表面温度:'-231°C', 分类:'离散盘' }, infoEn:{ 类型:'Dwarf Planet', 直径:'2,326 km', 轨道周期:'559 years', 自转周期:'25.9 hours', 表面温度:'-231°C', 分类:'Scattered Disc' } },
 ];
 
 const planets = [];
@@ -318,7 +318,7 @@ planetData.forEach((p) => {
   const geom = new THREE.SphereGeometry(p.r, 32, 32);
   const mat = new THREE.MeshStandardMaterial({ color: p.c, roughness: 0.6, metalness: 0.1, emissive: new THREE.Color(p.c).multiplyScalar(0.05) });
   const mesh = new THREE.Mesh(geom, mat);
-  mesh.userData = { type: 'planet', planetIdx: planets.length, name: p.name, nameEn: p.nameEn, img: p.img, info: p.info };
+  mesh.userData = { type: 'planet', planetIdx: planets.length, name: p.name, nameEn: p.nameEn, img: p.img, info: p.info, infoEn: p.infoEn };
   mesh.castShadow = true;
   mesh.rotation.z = p.tilt;
   group.add(mesh);
@@ -379,7 +379,7 @@ cometData.forEach((cd) => {
   scene.add(orbitLine);
 
   const nucleus = new THREE.Mesh(new THREE.SphereGeometry(0.3, 12, 12), new THREE.MeshBasicMaterial({ color: cd.color }));
-  nucleus.userData = { type:'comet', name:cd.name, nameEn:cd.nameEn, img:cd.img, info:{ 类型:'彗星', 半长轴:`${cd.a} AU`, 离心率:`${cd.e}`, 轨道倾角:`${(cd.inc*180/Math.PI).toFixed(0)}°` } };
+  nucleus.userData = { type:'comet', name:cd.name, nameEn:cd.nameEn, img:cd.img, info:{ 类型:'彗星', 半长轴:`${cd.a} AU`, 离心率:`${cd.e}`, 轨道倾角:`${(cd.inc*180/Math.PI).toFixed(0)}°` }, infoEn:{ 类型:'Comet', 半长轴:`${cd.a} AU`, 离心率:`${cd.e}`, 轨道倾角:`${(cd.inc*180/Math.PI).toFixed(0)}°` } };
   group.add(nucleus);
 
   const label = createLabel(cd.name, '#AAEEFF', 0.25);
@@ -450,14 +450,14 @@ const asteroidBelt = createParticleBelt(26, 34, 2, 3500, 0x888877, 0.0003);
 const kuiperBelt = createParticleBelt(62, 110, 10, 15000, 0x77BBDD, 0.00006, 0.35);
 
 const beltData = [
-  { name:'小行星带', nameEn:'Asteroid Belt', pos:{x:30,y:10,z:0}, img:'asteroids', info:{ 位置:'火星与木星之间', 距离:'2.2~3.2 AU', 天体数:'数百万', 总质量:'月球的4%', 最大天体:'谷神星(939 km)', 分类:'主带小行星' } },
-  { name:'柯伊伯带', nameEn:'Kuiper Belt', pos:{x:80,y:-12,z:0}, img:'beyond', info:{ 位置:'海王星轨道之外', 距离:'30~50 AU', 天体数:'数十亿', 组成:'冰与岩石', 著名天体:'冥王星、鸟神星', 分类:'外太阳系' } },
+  { name:'小行星带', nameEn:'Asteroid Belt', pos:{x:30,y:10,z:0}, img:'asteroids', info:{ 位置:'火星与木星之间', 距离:'2.2~3.2 AU', 天体数:'数百万', 总质量:'月球的4%', 最大天体:'谷神星(939 km)', 分类:'主带小行星' }, infoEn:{ 位置:'Between Mars & Jupiter', 距离:'2.2~3.2 AU', 天体数:'Millions', 总质量:'4% of Moon', 最大天体:'Ceres (939 km)', 分类:'Main Belt' } },
+  { name:'柯伊伯带', nameEn:'Kuiper Belt', pos:{x:80,y:-12,z:0}, img:'beyond', info:{ 位置:'海王星轨道之外', 距离:'30~50 AU', 天体数:'数十亿', 组成:'冰与岩石', 著名天体:'冥王星、鸟神星', 分类:'外太阳系' }, infoEn:{ 位置:'Beyond Neptune orbit', 距离:'30~50 AU', 天体数:'Billions', 组成:'Ice & Rock', 著名天体:'Pluto, Makemake', 分类:'Outer Solar System' } },
 ];
 beltData.forEach(b => {
   const label = createLabel(b.name, '#88AACC', 0.3);
   labelRefs[labelRefs.length-1].en = b.nameEn;
   label.position.set(b.pos.x, b.pos.y, b.pos.z);
-  label.userData = { name: b.name, nameEn: b.nameEn, img: b.img, info: b.info };
+  label.userData = { name: b.name, nameEn: b.nameEn, img: b.img, info: b.info, infoEn: b.infoEn };
   scene.add(label);
   makeLabelClickable(label, label.userData);
 });
@@ -466,6 +466,8 @@ const legendEl = document.getElementById('legend');
 const legendLabels = legendEl.querySelectorAll('.legend-label');
 const legendKeys = ['sun','mercury','venus','earth','mars','belt','jupiter','saturn','uranus','neptune','pluto','ceres','makemake','haumea','eris','kuiper','comet'];
 legendLabels.forEach((el, i) => { const k = legendKeys[i]; if (k) legendRefs.push({ el, cn: tr.zh[k], en: tr.en[k] }); });
+
+let lastInfoData = null;
 
 const infoPanel = document.getElementById('infoPanel');
 const ipName = document.getElementById('ipName');
@@ -483,6 +485,7 @@ function imgUrl(slug) {
 }
 
 function showInfo(data) {
+  lastInfoData = data;
   ipName.textContent = currentLang === 'en' && data.nameEn ? data.nameEn : data.name;
   ipNameEn.textContent = currentLang === 'en' ? data.name || '' : data.nameEn || '';
   if (data.img) {
@@ -495,8 +498,9 @@ function showInfo(data) {
     ipImgWrap.style.display = 'none';
   }
   ipBody.innerHTML = '';
-  if (data.info) {
-    Object.entries(data.info).forEach(([k, v]) => {
+  const srcInfo = currentLang === 'en' && data.infoEn ? data.infoEn : data.info;
+  if (srcInfo) {
+    Object.entries(srcInfo).forEach(([k, v]) => {
       const label = fieldTr[currentLang][k] || k;
       const row = document.createElement('div');
       row.className = 'row';
@@ -523,21 +527,12 @@ function setLang(lang) {
   document.querySelector('#legend h3').textContent = tr[lang].legend;
   legendRefs.forEach(r => { r.el.textContent = lang === 'zh' ? r.cn : r.en; });
   labelRefs.forEach(r => { r.div.textContent = lang === 'zh' ? r.cn : r.en; });
-  if (infoPanel.classList.contains('show')) {
-    const body = ipBody;
-    const rows = body.querySelectorAll('.row');
-    if (rows.length) {
-      const data = { name: ipName.textContent, nameEn: ipNameEn.textContent };
-      rows.forEach((row, i) => {
-        const key = Object.keys(fieldTr.zh)[i];
-        if (key) row.querySelector('.l').textContent = fieldTr[lang][key];
-      });
-    }
-  }
+  if (lastInfoData) showInfo(lastInfoData);
 } catch(e) { console.error('setLang error:', e); } }
 
 function hideInfo() {
   infoPanel.classList.remove('show');
+  lastInfoData = null;
 }
 
 function hideLightbox() {
