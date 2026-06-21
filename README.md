@@ -1,4 +1,4 @@
-# 3D 太阳系模型
+# Solar System Demo / 太阳系演示
 
 基于 Three.js 构建的交互式 3D 太阳系可视化模型。
 

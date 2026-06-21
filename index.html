@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>3D 太阳系模型</title>
+<title>Solar System Demo</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{overflow:hidden;background:#000;font-family:"Microsoft YaHei","PingFang SC",sans-serif;color:#fff}
@@ -515,7 +515,7 @@ function setLang(lang) {
   if (!btn) return;
   btn.textContent = lang === 'zh' ? 'EN' : '中';
   document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
-  document.title = lang === 'zh' ? '3D 太阳系模型' : '3D Solar System';
+  document.title = lang === 'zh' ? '太阳系演示' : 'Solar System Demo';
   const loadEl = document.getElementById('loading');
   if (loadEl) loadEl.textContent = tr[lang].loading;
   document.getElementById('speedLabel').textContent = tr[lang].speed;
